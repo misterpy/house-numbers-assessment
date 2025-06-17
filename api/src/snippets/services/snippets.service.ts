@@ -20,4 +20,22 @@ export class SnippetsService {
       summary: snippet.summary,
     };
   }
+
+  async findOne(id: string) {
+    const snippet = await this.snippetModel.findById(id);
+    return {
+      id: snippet._id.toString(),
+      text: snippet.text,
+      summary: snippet.summary,
+    };
+  }
+
+  async findAll() {
+    const snippets = await this.snippetModel.find();
+    return snippets.map((s) => ({
+      id: s._id.toString(),
+      text: s.text,
+      summary: s.summary,
+    }));
+  }
 }

@@ -1,6 +1,4 @@
-# HouseNumbersAssessment
-
-# Project Name
+# House Numbers Assessment
 
 ## Description
 This project has been generated using **Nx**, a powerful build system with support for monorepos, modern tools, and best practices.

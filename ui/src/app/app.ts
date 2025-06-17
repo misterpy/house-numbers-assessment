@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
+import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
-  imports: [NxWelcome, RouterModule],
+  imports: [RouterModule, MatToolbar],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
-  protected title = 'ui';
-}
+export class App {}

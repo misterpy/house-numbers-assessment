@@ -1,5 +1,15 @@
-<mat-toolbar>
-  <span>House Numbers Assessment - AI Snippet</span>
+<mat-toolbar class="flex justify-between">
+  <div>
+    <span>House Numbers Assessment - AI Snippet</span>
+
+    <button mat-button class="ml-4" routerLink="/snippets">
+      View Snippets
+    </button>
+  </div>
+
+  <button (click)="showAddSnippetDialog()" mat-button color="primary">
+    Add Snippet
+  </button>
 </mat-toolbar>
 <div class="p-4">
   <router-outlet></router-outlet>

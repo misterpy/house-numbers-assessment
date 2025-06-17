@@ -14,6 +14,13 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import('./components/snippets/snippets').then((m) => m.Snippets),
       },
+      {
+        path: 'snippets/:id',
+        loadComponent: () =>
+          import('./components/snippet-detail/snippet-detail').then(
+            (m) => m.SnippetDetail
+          ),
+      },
     ],
   },
 ];

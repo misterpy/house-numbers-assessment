@@ -38,4 +38,23 @@ describe('SnippetsController', () => {
     expect(await controller.create(dto)).toEqual(result);
     expect(service.create).toHaveBeenCalledWith(dto);
   });
+
+  it('should return all snippets', async () => {
+    const result = [
+      { id: '1', text: 'foo', summary: 'bar' },
+      { id: '2', text: 'baz', summary: 'qux' },
+    ];
+
+    jest.spyOn(service, 'findAll').mockResolvedValue(result);
+
+    expect(await controller.findAll()).toEqual(result);
+  });
+
+  it('should return one snippet by id', async () => {
+    const result = { id: '1', text: 'foo', summary: 'bar' };
+
+    jest.spyOn(service, 'findOne').mockResolvedValue(result);
+
+    expect(await controller.findOne('1')).toEqual(result);
+  });
 });

@@ -1,0 +1,35 @@
+services:
+  mongodb:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: snippets
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - house-numbers-assessment-network
+
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: api
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/snippets
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    networks:
+      - house-numbers-assessment-network
+    command: [ "npx", "nx", "serve", "api" ]
+
+volumes:
+  mongo-data:
+
+networks:
+  house-numbers-assessment-network:
+    driver: bridge

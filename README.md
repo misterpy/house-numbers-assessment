@@ -90,9 +90,16 @@ This option allows you to run the application using Docker, which includes the b
 
 ---
 
-## Summary
-You can choose to either:
-1. Run the application **locally using Nx** (`nx serve`) with a locally running MongoDB instance.
-2. Use **Docker Compose** to run the entire setup (UI, API, and MongoDB) with a single command.
+## Post-Challenge Reflection
 
-Both approaches allow you to effectively develop and test the application. Happy coding!
+The following points listed down below is not implemented because lack of time:
+
+1. No frontend component unit test is implemented.
+
+2. The current Dockerfile setup, particularly for the frontend, can be improved to reduce the image size. This can be achieved by creating smaller and more efficient production-ready builds.
+
+3. The backend requires better error handling, with more understandable and user-friendly error messages. Improving this aspect would make the application more robust and easier to debug.
+
+4. Setting up GitHub actions to automatically lint and test the code on every pull request or commit would ensure code quality and consistency in the repository.
+
+---

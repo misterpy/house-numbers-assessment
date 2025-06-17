@@ -1,0 +1,16 @@
+@if(query.isPending()) {
+<p>Loading...</p>
+} @if(!query.isPending() && snippet) {
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Snippet ID: {{ snippetId }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p><strong>Original Text:</strong></p>
+    <p class="mb-2">{{ snippet.text }}</p>
+
+    <p><strong>Summary:</strong></p>
+    <p class="text-indigo-600 italic">{{ snippet.summary }}</p>
+  </mat-card-content>
+</mat-card>
+}

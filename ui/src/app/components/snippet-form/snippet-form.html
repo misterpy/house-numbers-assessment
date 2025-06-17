@@ -1,0 +1,23 @@
+<mat-card class="p-4 w-[400px]">
+  <mat-card-title>Create new snippet</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col">
+      <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Enter raw text</mat-label>
+        <textarea matInput formControlName="text" rows="6"></textarea>
+        <mat-error *ngIf="form.get('text')?.invalid"
+          >Text is required and must be at least 10 characters.</mat-error
+        >
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="mutation.isPending() || form.invalid"
+      >
+        {{ mutation.isPending() ? 'Summarizing...' : 'Summarize' }}
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
